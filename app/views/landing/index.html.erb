@@ -1,8 +1,9 @@
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <em><%= article.title %></em> <br>
+      <%= article.title %><br />
       <%= article.content %>
     </li>
   <% end %>
 </ul>
+<a href='articles/new'>new article</a>

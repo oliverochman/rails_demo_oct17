@@ -9,8 +9,8 @@
   </head>
 
   <body>
-    <% if flash[:article] %>
-      <div class="notice"><%= flash[:article] %></div>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>
     <%= yield %>
   </body>

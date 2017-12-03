@@ -11,10 +11,10 @@ Feature: User leaves comment on article
 
   Scenario: User leaves a comment
     Given I am on the show page for article "Oliver är bäst"
-    And show me the page
     When I fill in "body" with "Great article"
     And I fill in "email" with "Hotmale@hotmail.com"
     And I click "Save" button
     Then I should be on the show page for article "Oliver är bäst"
     And I should see "Comment has been posted"
     And I should see "Great article"
+    And I should see "Hotmale@hotmail.com"

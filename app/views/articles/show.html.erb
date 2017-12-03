@@ -9,3 +9,13 @@
   <%= f.text_field :email %>
   <%= f.submit %>
 <% end %>
+<% if @article.comments.any? %>
+  <% @article.comments.each do |comment| %>
+    <p>
+      <%= comment.body %>
+    </p>
+    <p>
+      <%= comment.email %>
+    </p>
+  <% end %>
+<% end %>

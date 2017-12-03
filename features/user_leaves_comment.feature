@@ -19,10 +19,26 @@ Feature: User leaves comment on article
     And I should see "Great article"
     And I should see "Hotmale@hotmail.com"
 
-  Scenario: User leaves a comment [Sad path]
+  Scenario: User leaves a comment without an email
+    Given I am on the show page for article "Oliver är bäst"
+    When I fill in "body" with "Great article"
+    And I click "Save" button
+    Then I should be on the show page for article "Oliver är bäst"
+    And I should see "Comment has been posted"
+    And I should see "Great article"
+
+  Scenario: User leaves a comment with blank body [Sad path]
     Given I am on the show page for article "Oliver är bäst"
     When I fill in "body" with ""
     And I fill in "email" with "Hotmale@hotmail.com"
     And I click "Save" button
     Then I should be on the show page for article "Oliver är bäst"
     And I should see "Body can't be blank"
+
+  Scenario: User leaves a comment with invalid [Sad path]
+    Given I am on the show page for article "Oliver är bäst"
+    When I fill in "body" with "Great Article"
+    And I fill in "email" with "Hotmale@hotmail.c"
+    And I click "Save" button
+    Then I should be on the show page for article "Oliver är bäst"
+    And I should see "Invalid email"

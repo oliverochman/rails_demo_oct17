@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
     body "MyText"
-    email "MyString"
+    email "test@test.se"
     article nil
   end
 end

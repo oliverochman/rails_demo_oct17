@@ -18,3 +18,11 @@ Feature: User leaves comment on article
     And I should see "Comment has been posted"
     And I should see "Great article"
     And I should see "Hotmale@hotmail.com"
+
+  Scenario: User leaves a comment [Sad path]
+    Given I am on the show page for article "Oliver är bäst"
+    When I fill in "body" with ""
+    And I fill in "email" with "Hotmale@hotmail.com"
+    And I click "Save" button
+    Then I should be on the show page for article "Oliver är bäst"
+    And I should see "Body can't be blank"

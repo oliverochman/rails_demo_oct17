@@ -28,3 +28,17 @@ Then("I should be on {string} page") do |article_title|
   article = Article.find_by(title: article_title)
   expect(page.current_path).to eq "/articles/#{article.id}"
 end
+
+Given("I am on the show page for article {string}") do |article_title|
+  article = Article.find_by(title: article_title)
+  visit article_path(article)
+end
+
+Then("I should be on the show page for article {string}") do |article_title|
+  article = Article.find_by(title: article_title)
+  expect(page.current_path).to eq "/articles/#{article.id}"
+end
+
+Given("show me the page") do
+  save_and_open_page
+end

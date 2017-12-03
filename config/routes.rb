@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  #get 'landing/index'
 
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 
   root 'landing#index'
 end

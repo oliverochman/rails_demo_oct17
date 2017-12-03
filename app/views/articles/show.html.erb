@@ -2,3 +2,10 @@
 <p>
   <%= @article.content %>
 </p>
+<%= form_with url: article_comments_path(@article) do |f| %>
+  <%= f.label :body, 'Comment' %>
+  <%= f.text_field :body %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.submit %>
+<% end %>

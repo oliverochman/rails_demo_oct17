@@ -1,13 +1,10 @@
-Given("I visit the landing page") do
-  visit '/'
-end
-
 Then("I should see {string}") do |content|
   expect(page).to have_content content
 end
 
 Given("the following articles exists") do |table|
   table.hashes.each do |article|
+  binding.pry
   FactoryBot.create(:article, article)
   end
 end
@@ -41,4 +38,8 @@ end
 
 Given("show me the page") do
   save_and_open_page
+end
+
+When("I am on the landing page") do
+  visit '/'
 end

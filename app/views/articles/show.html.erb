@@ -1,6 +1,7 @@
 <h1><%= @article.title %></h1>
 <p>
   <%= @article.content %>
+  <%= @article.author %>
 </p>
 <%= form_with url: article_comments_path(@article) do |f| %>
   <%= f.label :body, 'Comment' %>
